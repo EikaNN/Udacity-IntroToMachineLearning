@@ -15,6 +15,15 @@ def outlierCleaner(predictions, ages, net_worths):
 
     ### your code goes here
 
-    
-    return cleaned_data
+    print ""
+    print "Removing outliers from training set"
+    print ""
+
+    for prediction, age, net_worth in zip(predictions, ages, net_worths):
+        residual_error = abs(prediction - net_worth)
+        cleaned_data.append( (age, net_worth, residual_error) )
+
+    cleaned_data.sort(key=lambda t: t[2])
+
+    return cleaned_data[:int(len(cleaned_data)*0.9)]
 
