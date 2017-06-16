@@ -60,6 +60,22 @@ print "The minimum value taken by salary is", \
 print "The maximum value taken by salary is", \
     max([person[feature] for person in data_dict.values() if person[feature] != 'NaN'])
 
+from sklearn.preprocessing import MinMaxScaler
+
+scaler = MinMaxScaler()
+
+salary = numpy.asarray([feature[0] for feature in finance_features]).reshape(-1, 1)
+scaled_salary = scaler.fit_transform(salary)
+
+print "The rescaled value of a salary of $200,000 is", \
+    scaler.transform(numpy.array([ [2e5] ]))
+
+stock = numpy.asarray([feature[1] for feature in finance_features]).reshape(-1, 1)
+scaled_stock = scaler.fit_transform(stock)
+
+print "The rescaled value of a stock of $1,000,000 is", \
+    scaler.transform(numpy.array([ [1e6] ]))
+
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to 
 ### for f1, f2, _ in finance_features:
