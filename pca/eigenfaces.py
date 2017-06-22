@@ -125,7 +125,6 @@ def plot_gallery(images, titles, h, w, n_row=3, n_col=4):
         pl.xticks(())
         pl.yticks(())
 
-
 # plot the result of the prediction on a portion of the test set
 
 def title(y_pred, y_test, target_names, i):
@@ -144,3 +143,9 @@ eigenface_titles = ["eigenface %d" % i for i in range(eigenfaces.shape[0])]
 plot_gallery(eigenfaces, eigenface_titles, h, w)
 
 pl.show()
+
+print "The variance explained by the first principal component is", \
+    pca.explained_variance_ratio_[0]
+
+print "The variance explained by the second principal component is", \
+    pca.explained_variance_ratio_[1]

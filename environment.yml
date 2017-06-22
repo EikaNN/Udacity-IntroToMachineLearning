@@ -97,5 +97,7 @@ dependencies:
   - nb-anacondacloud==1.2.0
   - nb-conda==2.0.0
   - nb-conda-kernels==2.0.0
+  - olefile==0.44
+  - pillow==4.1.1
   - prompt-toolkit==1.0.9
 prefix: /Users/mat/anaconda/envs/DAND
